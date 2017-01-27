@@ -8,7 +8,8 @@ perl -F, -lane'!($.>= 12 and $F[3] =~ /miR|let/) and next; $count{(split/[-_]/, 
 
 STDOUT:
 
---- | ---
+Type | Counts
+---- | ------
 miR | 8200
 miRPlus | 72
 let | 72
