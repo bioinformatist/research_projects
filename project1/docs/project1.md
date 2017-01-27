@@ -8,6 +8,7 @@ perl -F, -lane'!($.>= 12 and $F[3] =~ /miR|let/) and next; $count{(split/[-_]/, 
 
 STDOUT:
 
+--- | ---
 miR | 8200
 miRPlus | 72
 let | 72
@@ -33,6 +34,7 @@ cat 3
 
 The result of `diff`:
 
+```pre
 0a1
 >
 256a258
@@ -43,5 +45,6 @@ The result of `diff`:
 > hsa-miR-381-5p
 1931a1936
 > hsa-miR-874-5p
+```
 
 These miRNAs had more than one one probes. Considering the requirement of identifying differentially expressed miRNAs and this rare scenario, my procedure may works well up to now.
