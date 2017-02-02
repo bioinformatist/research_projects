@@ -8,6 +8,8 @@
 
 <!-- TOC END -->
 
+I've checked the reports and raw data, and there're only probes for *Hy3*, with no *Hy5* labled. Hence, it must be a single channel microarray.
+
 ## Count numbers for each type of miRNAs/probes
 
 ```perl
@@ -60,6 +62,8 @@ The result of `diff`:
 
 These miRNAs had more than one one probes. Considering the requirement of identifying differentially expressed miRNAs and this rare scenario, my procedure may works well up to now.
 
+> As microRNA probes bind more miRNAs than what you are interested in, for each miRNA, there may be more than one probe designed. See the answer [here](https://support.bioconductor.org/p/88210/#88231).
+
 ## Normalize expression matrix
 
 To illustrate raw data distribution, a density plot and a boxplot were generated.
@@ -93,12 +97,17 @@ Let's move on. Make graphics now:
 density.raw <- ggdraw(ggplot(data = DT.expr1, aes(value, colour = sample.name)) + geom_density() + scale_x_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
 save_plot('figures/density.raw.png', density.raw, base_height = 8.5, base_width = 11)
 boxplot.raw <- ggdraw(ggplot(data = DT.expr1, aes(sample.name, value)) + geom_boxplot(notch = TRUE) + scale_y_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
-save_plot('figures/boxplot.raw.png', density.raw, base_height = 8.5, base_width = 11)
+save_plot('figures/boxplot.raw.png', boxplot.raw, base_height = 8.5, base_width = 11)
 ```
 
+The density plot of raw data:
+![density.raw.png](https://github.com/bioinformatist/research_projects/raw/master/project1/figures/density.raw.png)
 
-
+The boxplot of raw data:
+![boxplot.raw.png](https://github.com/bioinformatist/research_projects/raw/master/project1/figures/boxplot.raw.png)
 
 Why use such size for figures?
 
 > About figure size: Each figure should be able to fit on a single 8.5 x 11 inch page. Please do not send figure panels as individual files. We use three standard widths for figures: 1 column, 85 mm; 1.5 column, 114 mm; and 2 column, 174 mm (the full width of the page). Although your figure size may be reduced in the print journal, please keep these widths in mind. For Previews and other three-column formats, these widths are also applicable, though the width of a single column will be 55 mm. --From [Cell Press Digital Image Guidelines (click to see details)](http://www.cell.com/figureguidelines).
+
+For online review in-house, I use `png` format instead of `tiff`, which will be reproduced later to remove watermark and meet conditions for publishing as many of them just for a passing glance :)
