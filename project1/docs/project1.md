@@ -90,12 +90,10 @@ melt <- data.table::melt
 Let's move on. Make graphics now:
 
 ```R
-tiff('figures/raw.density.tiff', res = 300, compression = 'lzw', width = 11, height = 8.5, unit = 'in')
-ggdraw(ggplot(data = DT.expr1, aes(value, colour = sample.name)) + geom_density() + scale_x_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
-dev.off()
-tiff('figures/raw.boxplot.tiff', res = 300, compression = 'lzw', width = 11, height = 8.5, unit = 'in')
-ggdraw(ggplot(data = DT.expr1, aes(sample.name, value)) + geom_boxplot(notch = TRUE) + scale_y_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
-dev.off()
+density.raw <- ggdraw(ggplot(data = DT.expr1, aes(value, colour = sample.name)) + geom_density() + scale_x_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
+save_plot('figures/density.raw.png', density.raw, base_height = 8.5, base_width = 11)
+boxplot.raw <- ggdraw(ggplot(data = DT.expr1, aes(sample.name, value)) + geom_boxplot(notch = TRUE) + scale_y_continuous(trans = 'log2')) + draw_label("Draft for \n Peng's Lab!", angle = 45, size = 80, alpha = .2)
+save_plot('figures/boxplot.raw.png', density.raw, base_height = 8.5, base_width = 11)
 ```
 
 
