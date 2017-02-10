@@ -7,4 +7,4 @@ Directories | Contents
 docs | Project records, instructions and other explainations.
 figures | Figures for manuscripts,supplementary files and drafts.
 
-## **Project 1**: [Xiaoya Zhou's miRNA mircroarray data analysis](https://github.com/bioinformatist/research_projects/blob/master/project1/docs/project1.md)
+## **Project 1**: [Xiaoya Zhou's miRNA mircroarray data analysis](http://icannotendure.space/project/project1/)

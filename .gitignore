@@ -1,2 +1,4 @@
 # To ignore the foler containing specific settings for the project
 .idea
+
+.Rhistory
