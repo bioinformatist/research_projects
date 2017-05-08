@@ -31,7 +31,7 @@ ggheatmap <- function(exprs) {
     #axis.ticks.length = element_blank()
   )
   
-  heatmap.exprs <- ggplot(exprs, aes(x = sample.name, y = miRNAs)) + geom_tile(aes(fill=value)) + scale_fill_gradient2(low = "green", mid = "black", high = "red", midpoint = 0) + xlab('Sample') + theme(axis.line = element_blank(), axis.text.y = element_text(size = rel(0.8)))
+  heatmap.exprs <- ggplot(exprs, aes(x = sample.name, y = miRNAs)) + geom_tile(aes(fill=value)) + scale_fill_gradient2(low = "green", mid = "black", high = "red", midpoint = 0) + xlab('Sample') + theme(axis.line = element_blank(), axis.text.y = element_text(size = rel(0.7)))
   dendrogram.x <- ggplot(segment(dendro.data.x)) + 
     geom_segment(aes(x=x, y=y, xend=xend, yend=yend)) + 
     theme_none + theme(axis.title.x=element_blank())
